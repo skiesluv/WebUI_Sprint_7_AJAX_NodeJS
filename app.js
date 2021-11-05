@@ -1,20 +1,20 @@
 const dataFromJson = document.getElementById("usersFromJSON")
 
-const renderJson = async () => {
+async function renderData() {
     let url = 'http://localhost:3000/users';
 
     const res = await fetch(url);
     const data = await res.json();
 
     let template = '';
-    data.forEach(post => {
+    data.forEach(key => {
         template += `
         <div class="user">
-            <h1>User id: ${post.id}</h1>
-            <p>Name: ${post.first_name}</p>
-            <p>Lastname: ${post.last_name}</p>
-            <p>Email: ${post.email}</p>
-            <img src="${post.photo}" alt="" />
+            <h1>User id: ${key.id}</h1>
+            <p>Name: ${key.first_name}</p>
+            <p>Lastname: ${key.last_name}</p>
+            <p>Email: ${key.email}</p>
+            <img src="${key.photo}" alt="" />
         </div>
         `
     })
